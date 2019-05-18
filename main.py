@@ -26,9 +26,9 @@ from linebot.models import (
 app = flask.Flask(__name__)
 
 #CHANNEL_ACCESS_TOKEN
-line_bot_api = LineBotApi('ACESSS_TOKEN')
+line_bot_api = LineBotApi('nWoa5oT5hEYcJFDFtkO+cayWmv1csG7VFv2lVts9cPzUNIztyJS/qdC97S04y2IojZpw61khnvr/Me70N7I+XEpOEpCm4k6eNkZWwMdPanEBrQVKli9+afadHyOCTrp9MF9yFxDtwQUrsvBtSuyvOwdB04t89/1O/w1cDnyilFU=')
 #CANNEL_SECRET
-handler = WebhookHandler('CHANNEL_SECRET')
+handler = WebhookHandler('cde7c48012a4e641a8d841ee86236dfb')
 
 # Instantiates a client
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'emochat-5337973d0bb0.json'
