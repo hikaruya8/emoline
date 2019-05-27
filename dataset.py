@@ -2,6 +2,7 @@ import os, sys, logging, time, configparser
 import pymongo
 from pymongo import MongoClient, DESCENDING
 import pandas as pd
+import config
 
 # Const of database name
 DICTIONARY_DB = "dictionaries"
@@ -15,7 +16,7 @@ PL_COLLECTION_NAME = "polarity"
 def get_db(db_name):
     # config = configparser.ConfigParser()
     # config.read( './config.ini')
-    client = pymongo.MongoClient("mongodb+srv://hikaruya:neruson00@emoline-ubjn2.mongodb.net/test?retryWrites=true")
+    client = pymongo.MongoClient("MONGO_CLIENT")
     db = client.test
     # client = MongoClient('localhost')
     # client['admin'].authenticate(config.get('mongo', 'id'), config.get('mongo', 'password'))
