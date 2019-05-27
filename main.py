@@ -26,12 +26,12 @@ from linebot.models import (
 app = flask.Flask(__name__)
 
 #CHANNEL_ACCESS_TOKEN
-line_bot_api = LineBotApi('nWoa5oT5hEYcJFDFtkO+cayWmv1csG7VFv2lVts9cPzUNIztyJS/qdC97S04y2IojZpw61khnvr/Me70N7I+XEpOEpCm4k6eNkZWwMdPanEBrQVKli9+afadHyOCTrp9MF9yFxDtwQUrsvBtSuyvOwdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi('ACCESS_TOKEN')
 #CANNEL_SECRET
-handler = WebhookHandler('cde7c48012a4e641a8d841ee86236dfb')
+handler = WebhookHandler('CHANNEL_SECRET')
 
 # Instantiates a client
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'emochat-5337973d0bb0.json'
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'JSON_LINE_FILE'
 client = language.LanguageServiceClient()
 
 #返信メッセージを設定
@@ -54,8 +54,8 @@ msglst ={100:"全然問題ない!!!",
         -60:"ちょっとやばいかも。。",
         -70:"少しフォロー必要かも",
         -80:"フォロー必要",
-        -90:"早くフォロー！",
-        -100:"まずは謝る"
+        -90:"まずは謝ろう",
+        -100:"土下座しよう"
     }
 
 @app.route("/")

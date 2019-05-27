@@ -1,4 +1,5 @@
 import os, sys, logging, time, configparser
+import pymongo
 from pymongo import MongoClient, DESCENDING
 import pandas as pd
 
@@ -14,7 +15,7 @@ PL_COLLECTION_NAME = "polarity"
 def get_db(db_name):
     # config = configparser.ConfigParser()
     # config.read( './config.ini')
-    client = MongoClient("mongodb+srv://hikaruya:<password>@emoline-ubjn2.mongodb.net/test?retryWrites=true")
+    client = pymongo.MongoClient("mongodb+srv://hikaruya:neruson00@emoline-ubjn2.mongodb.net/test?retryWrites=true")
     db = client.test
     # client = MongoClient('localhost')
     # client['admin'].authenticate(config.get('mongo', 'id'), config.get('mongo', 'password'))
