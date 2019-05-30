@@ -4,12 +4,13 @@ import json
 import os
 import sys
 import config
+import oseti
 #import logging
 #logging.getLogger().setLevel( logging.DEBUG )
 
-from google.cloud import language
-from google.cloud.language import enums
-from google.cloud.language import types
+# from google.cloud import language
+# from google.cloud.language import enums
+# from google.cloud.language import types
 
 import flask
 
@@ -26,18 +27,18 @@ from linebot.models import (
 app = flask.Flask(__name__)
 
 #CHANNEL_ACCESS_TOKEN
-line_bot_api = LineBotApi('ACCESS_TOKEN')
+line_bot_api = LineBotApi('ACCESS_TOKEN') #自分のLINEでのACCESS TOKENを入れる
 #CANNEL_SECRET
-handler = WebhookHandler('CHANNEL_SECRET')
+handler = WebhookHandler('CHANNEL_SECRET') #自分のLINEでのCHNNEL SECRETを入れる
 
 # Instantiates a client
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'JSON_LINE_FILE'
-client = language.LanguageServiceClient()
+# os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = 'JSON_LINE_FILE'
+# client = language.LanguageServiceClient()
 
 #返信メッセージを設定
-msglst ={100:"全然問題ない!!!",
-        90:"全然問題ない!!",
-        80:"全然問題ない!",
+msglst ={100:"上機嫌！全然問題ない!!!",
+        90:"上機嫌！問題ない!!",
+        80:"機嫌良し！問題ない!",
         70:"問題ない!!!",
         60:"問題ない!!",
         50:"問題ない!",
@@ -45,7 +46,7 @@ msglst ={100:"全然問題ない!!!",
         30:"たぶん大丈夫",
         20:"まだ大丈夫",
         10:"もう少し大丈夫",
-        0:"ギリギリ大丈夫",
+        0:"普通",
         -10:"様子見しますか",
         -20:"もう少し様子見しますか",
         -30:"あと少し様子見しますか",
@@ -82,9 +83,6 @@ def callback():
 
 @handler.add(MessageEvent, message = TextMessage)
 def handle_message(event):
-
-
-
     text = event.message.text
 
     document = types.Document(
@@ -92,7 +90,9 @@ def handle_message(event):
     type=enums.Document.Type.PLAIN_TEXT)
 
     # Detects the sentiment of the text
-    sentiment = client.analyze_sentiment(document=document).document_sentiment
+    analyzer = oseti.Analyzer()
+    sentiment = analyzer.analyze(document)[0]
+    # sentiment = client.analyze_sentiment(document=document).document_sentiment
 
     #score = round(sentiment.score, 1)
     score = int(sentiment.score * 100)
