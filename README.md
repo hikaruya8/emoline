@@ -10,3 +10,7 @@ LINEの文章を打つと -100 〜 +100 点の間でその文章の怒り度が�
 下のQRコードを読み取って，文章を入力したり，他の文章を転送(コピペ)してみてください．
 
 ![QRcode_emoLINE](./images/LINE_QR_code.png)
+
+<br>
+
+![screenshot_emoLINE](./images/emoline_screeshot.JPG)
