@@ -13,4 +13,4 @@ LINEの文章を打つと -100 〜 +100 点の間でその文章の怒り度が�
 
 <br>
 
-![screenshot_emoLINE](./images/emoline_screeshot.JPG)
+<img src="./images/emoline_screeshot.JPGG" width="400">
